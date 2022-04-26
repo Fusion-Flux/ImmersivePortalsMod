@@ -62,11 +62,7 @@ public class MixinPlayerList {
     public void sendToDimension(Packet<?> packet, ResourceKey<Level> dimension, CallbackInfo ci) {
         for (ServerPlayer player : players) {
             if (player.level.dimension() == dimension) {
-                player.connection.send(
-                    IPNetworking.createRedirectedMessage(
-                        dimension,
-                        packet
-                    )
+                player.connection.send(packet
                 );
             }
         }
@@ -111,9 +107,8 @@ public class MixinPlayerList {
             playerEntity, dimension, chunkPos.x, chunkPos.z, (int) distance + 16
         )).forEach(playerEntity -> {
             if (playerEntity != excludingPlayer) {
-                playerEntity.connection.send(IPNetworking.createRedirectedMessage(
-                    dimension, packet
-                ));
+                playerEntity.connection.send(packet
+                );
             }
         });
     }

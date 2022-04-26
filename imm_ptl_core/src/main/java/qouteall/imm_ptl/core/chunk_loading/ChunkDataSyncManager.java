@@ -67,10 +67,9 @@ public class ChunkDataSyncManager {
                 MiscHelper.getServer().getProfiler().push("ptl_create_chunk_packet");
                 
                 player.connection.send(
-                    IPNetworking.createRedirectedMessage(
-                        chunkPos.dimension,
+
                         new ClientboundLevelChunkWithLightPacket(((LevelChunk) chunk), lightingProvider, null, null, true)
-                    )
+
                 );
                 
                 ieStorage.ip_updateEntityTrackersAfterSendingChunkPacket(chunk, player);
@@ -94,10 +93,9 @@ public class ChunkDataSyncManager {
         MiscHelper.getServer().getProfiler().push("ptl_create_chunk_packet");
         
         Supplier<Packet> chunkDataPacketRedirected = Helper.cached(
-            () -> IPNetworking.createRedirectedMessage(
-                dimension,
+            () ->
                 new ClientboundLevelChunkWithLightPacket(((LevelChunk) chunk), lightingProvider, null, null, true)
-            )
+
         );
         
         NewChunkTrackingGraph.getPlayersViewingChunk(
@@ -114,12 +112,11 @@ public class ChunkDataSyncManager {
     private void onEndWatch(ServerPlayer player, DimensionalChunkPos chunkPos) {
         
         player.connection.send(
-            IPNetworking.createRedirectedMessage(
-                chunkPos.dimension,
+
                 new ClientboundForgetLevelChunkPacket(
                     chunkPos.x, chunkPos.z
                 )
-            )
+
         );
     }
     

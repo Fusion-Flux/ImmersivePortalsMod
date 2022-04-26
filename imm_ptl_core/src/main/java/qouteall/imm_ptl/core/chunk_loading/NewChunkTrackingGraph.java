@@ -506,12 +506,11 @@ public class NewChunkTrackingGraph {
                 record -> {
                     record.isValid = false;
                     record.player.connection.send(
-                        IPNetworking.createRedirectedMessage(
-                            dim, new ClientboundForgetLevelChunkPacket(
+                        new ClientboundForgetLevelChunkPacket(
                                 ChunkPos.getX(chunkPos),
                                 ChunkPos.getZ(chunkPos)
                             )
-                        )
+
                     );
                 }
             )
@@ -526,11 +525,10 @@ public class NewChunkTrackingGraph {
         }
         
         map.forEach((chunkPos, records) -> {
-            Packet unloadPacket = IPNetworking.createRedirectedMessage(
-                dim, new ClientboundForgetLevelChunkPacket(
+            Packet unloadPacket =  new ClientboundForgetLevelChunkPacket(
                     ChunkPos.getX(chunkPos),
                     ChunkPos.getZ(chunkPos)
-                )
+
             );
             for (PlayerWatchRecord record : records) {
                 if (record.isValid && record.isLoadedToPlayer) {

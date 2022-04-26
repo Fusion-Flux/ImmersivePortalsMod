@@ -168,11 +168,10 @@ public abstract class MixinTrackedEntity implements IEEntityTracker {
     public void resendSpawnPacketToTrackers() {
         // avoid sending wrong position delta update packet
         ((IEEntityTrackerEntry) serverEntity).ip_updateTrackedEntityPosition();
-        
+
         Packet<?> spawnPacket = entity.getAddEntityPacket();
-        Packet redirected = IPNetworking.createRedirectedMessage(entity.level.dimension(), spawnPacket);
         seenBy.forEach(handler -> {
-            handler.send(redirected);
+            handler.send(spawnPacket);
         });
     }
     

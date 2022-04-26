@@ -51,8 +51,7 @@ public class WorldInfoSender {
         ResourceKey<Level> remoteDimension = world.dimension();
         
         player.connection.send(
-            IPNetworking.createRedirectedMessage(
-                remoteDimension,
+
                 new ClientboundSetTimePacket(
                     world.getGameTime(),
                     world.getDayTime(),
@@ -60,18 +59,17 @@ public class WorldInfoSender {
                         GameRules.RULE_DAYLIGHT
                     )
                 )
-            )
+
         );
         
         /**{@link net.minecraft.client.network.ClientPlayNetworkHandler#onGameStateChange(GameStateChangeS2CPacket)}*/
         
         if (world.isRaining()) {
-            player.connection.send(IPNetworking.createRedirectedMessage(
-                world.dimension(),
+            player.connection.send(
                 new ClientboundGameEventPacket(
                     ClientboundGameEventPacket.START_RAINING,
                     0.0F
-                )
+
             ));
         }
         else {
@@ -79,20 +77,18 @@ public class WorldInfoSender {
             //if the weather turned to not raining then elsewhere syncs it
         }
         
-        player.connection.send(IPNetworking.createRedirectedMessage(
-            world.dimension(),
+        player.connection.send(
             new ClientboundGameEventPacket(
                 ClientboundGameEventPacket.RAIN_LEVEL_CHANGE,
                 world.getRainLevel(1.0F)
             )
-        ));
-        player.connection.send(IPNetworking.createRedirectedMessage(
-            world.dimension(),
+        );
+        player.connection.send(
             new ClientboundGameEventPacket(
                 ClientboundGameEventPacket.THUNDER_LEVEL_CHANGE,
                 world.getThunderLevel(1.0F)
             )
-        ));
+        );
     }
     
     public static boolean isNonOverworldSurfaceDimension(Level world) {

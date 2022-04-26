@@ -39,9 +39,8 @@ public class MixinChunkHolder implements IEChunkHolder {
         
         Consumer<ServerPlayer> func = player ->
             player.connection.send(
-                IPNetworking.createRedirectedMessage(
-                    dimension, packet_1
-                )
+                packet_1
+
             );
         
         if (onlyOnRenderDistanceEdge) {
