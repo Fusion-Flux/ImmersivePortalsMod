@@ -98,7 +98,7 @@ public class IPNetworking {
         ResourceKey<Level> dimension,
         Packet packet
     ) {
-        player.connection.send(createRedirectedMessage(dimension, packet));
+        player.connection.send( packet);
     }
     
     public static Packet createStcDimensionConfirm(

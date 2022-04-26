@@ -20,6 +20,6 @@ public class MixinServerGamePacketListenerImpl_E {
             return originalPacket;
         }
         
-        return IPNetworking.createRedirectedMessage(IPCommonNetwork.getForceRedirectDimension(), originalPacket);
+        return  originalPacket;
     }
 }

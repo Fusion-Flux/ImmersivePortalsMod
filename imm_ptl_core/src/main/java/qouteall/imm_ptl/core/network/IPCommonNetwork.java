@@ -74,10 +74,9 @@ public class IPCommonNetwork {
         }
         else {
             serverPlayNetworkHandler.send(
-                IPNetworking.createRedirectedMessage(
-                    dimension,
+
                     packet
-                )
+
             );
         }
     }
