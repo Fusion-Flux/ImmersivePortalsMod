@@ -24,7 +24,7 @@ public class IPConfig {
     public boolean lagAttackProof = true;
     public int portalRenderLimit = 200;
     public int indirectLoadingRadiusCap = 8;
-    public boolean compatibilityRenderMode = false;
+    public boolean compatibilityRenderMode = true;
     public boolean doCheckGlError = false;
     public int portalSearchingRange = 128;
     public boolean renderYourselfInPortal = true;
