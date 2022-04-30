@@ -14,7 +14,7 @@ import qouteall.q_misc_util.MiscHelper;
 
 public class DimId {
     
-    private static final boolean useIntegerId = true;
+    private static final boolean useIntegerId = false;
     
     public static void writeWorldId(
         FriendlyByteBuf buf, ResourceKey<Level> dimension, boolean isClient
