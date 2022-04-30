@@ -127,7 +127,7 @@ public class IPModMainClient {
         
         DubiousThings.init();
         
-        //CrossPortalEntityRenderer.init();
+        CrossPortalEntityRenderer.init();
         
         GLResourceCache.init();
         
