@@ -1,7 +1,6 @@
 package qouteall.imm_ptl.core.compat;
 
 import me.andrew.gravitychanger.accessor.EntityAccessor;
-import me.andrew.gravitychanger.accessor.RotatableEntityAccessor;
 import me.andrew.gravitychanger.api.GravityChangerAPI;
 import me.andrew.gravitychanger.util.RotationUtil;
 import net.fabricmc.api.EnvType;
@@ -97,7 +96,7 @@ public class GravityChangerInterface {
         
         @Override
         public void setGravityDirection(Entity entity, Direction direction) {
-            ((RotatableEntityAccessor) entity).gravitychanger$setGravityDirection(direction, false);
+            GravityChangerAPI.setGravityDirection(entity,direction);
         }
         
         @Nullable

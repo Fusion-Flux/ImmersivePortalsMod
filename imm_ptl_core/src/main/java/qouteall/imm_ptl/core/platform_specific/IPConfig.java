@@ -17,16 +17,16 @@ public class IPConfig {
     // json does not allow comments...
     public String check_the_wiki_for_more_information = "https://qouteall.fun/immptl/wiki/Config-Options";
     
-    public boolean enableWarning = true;
+    public boolean enableWarning = false;
     public boolean enableMirrorCreation = true;
-    public int maxPortalLayer = 5;
+    public int maxPortalLayer = 1;
     public boolean sharedBlockMeshBufferOptimization = true;
     public boolean lagAttackProof = true;
-    public int portalRenderLimit = 200;
-    public int indirectLoadingRadiusCap = 8;
-    public boolean compatibilityRenderMode = false;
+    public int portalRenderLimit = 50;
+    public int indirectLoadingRadiusCap = 4;
+    public boolean compatibilityRenderMode = true;
     public boolean doCheckGlError = false;
-    public int portalSearchingRange = 128;
+    public int portalSearchingRange = 64;
     public boolean renderYourselfInPortal = true;
     public boolean serverSideNormalChunkLoading = true;
     public boolean teleportationDebug = false;
@@ -37,7 +37,7 @@ public class IPConfig {
     public boolean reducedPortalRendering = false;
     public boolean visibilityPrediction = true;
     public boolean netherPortalOverlay = false;
-    public int scaleLimit = 30;
+    public int scaleLimit = 15;
     public boolean easeCreativePermission = true;
     public boolean easeCommandStickPermission = false;
     public boolean enableDatapackPortalGen = true;
